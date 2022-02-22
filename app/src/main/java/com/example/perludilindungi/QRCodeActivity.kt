@@ -139,7 +139,6 @@ class QRCodeActivity : AppCompatActivity(), SensorEventListener {
             runOnUiThread {
                 // Get the decoded string.
                 decodeResult = it.text
-                Log.d("RESS", decodeResult)
 
                 // Send the string and location to api.
                 RetrofitClient.instance.checkIn(
@@ -153,8 +152,6 @@ class QRCodeActivity : AppCompatActivity(), SensorEventListener {
                         call: Call<CheckInResponse>,
                         response: Response<CheckInResponse>
                     ) {
-                        Log.d("SUCC", "SUCCC")
-                        Log.d("SUCC", response.toString())
                         when (response.body()!!.code){
                             200 -> {
                                 // Write user status.
@@ -208,7 +205,6 @@ class QRCodeActivity : AppCompatActivity(), SensorEventListener {
                         binding.statusScan.text = "Gagal"
                         binding.userStatus.text = "Android error"
                         binding.userReason.text = ""
-                        Log.d("ERRRR", "ERRRRRRRRR")
                         Log.e("Error", "Check-in failed")
                         t.message?.let { Log.e("Error", it) }
                     }
@@ -287,7 +283,7 @@ class QRCodeActivity : AppCompatActivity(), SensorEventListener {
         const val CAMERA_REQ = 123
         const val LOCATION_REQ = 100
     }
-    
+
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         if (decodeResult != ""){
             decodeResult = ""
