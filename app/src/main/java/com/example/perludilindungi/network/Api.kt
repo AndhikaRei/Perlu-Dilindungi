@@ -9,16 +9,16 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface Api {
-    @GET("get-news")
+    @GET("api/get-news")
     fun getListNews(): Call<NewsResponse>
 
-    @GET("get-province")
+    @GET("api/get-province")
     fun getListProvince(): Call<ProvinceResponse>
 
-    @GET("get-city")
+    @GET("api/get-city")
     fun getListCity(): Call<CityResponse>
 
-    @GET("get-faskes-vaksinasi")
+    @GET("api/get-faskes-vaksinasi")
     fun getFaskesVaksinasi(
        @Query("city") city: String,
        @Query("province") province: String
@@ -28,8 +28,8 @@ interface Api {
     @POST("check-in")
     fun checkIn(
         @Field("qrCode") qrCode : String,
-        @Field("latitude") latitude : String,
-        @Field("longitude") longitude : String,
+        @Field("latitude") latitude : Double,
+        @Field("longitude") longitude : Double,
     ): Call<CheckInResponse>
 
 }

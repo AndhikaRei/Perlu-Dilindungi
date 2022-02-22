@@ -3,16 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/PerluDilindungi/app/src/main/res/drawable-anydpi/ic_success_scan.xml" value="0.2675" />
         <entry key="..\:/Android/PerluDilindungi/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2985" />
         <entry key="..\:/Android/PerluDilindungi/app/src/main/res/drawable-v24/ic_splash.xml" value="0.2125" />
         <entry key="..\:/Android/PerluDilindungi/app/src/main/res/drawable/bg_gradient.xml" value="0.2125" />
         <entry key="..\:/Android/PerluDilindungi/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.2125" />
+        <entry key="..\:/Android/PerluDilindungi/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.2675" />
+        <entry key="..\:/Android/PerluDilindungi/app/src/main/res/drawable/ic_baseline_qr_code_scanner_24.xml" value="0.2335" />
         <entry key="..\:/Android/PerluDilindungi/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.2985" />
         <entry key="..\:/Android/PerluDilindungi/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2985" />
+        <entry key="..\:/Android/PerluDilindungi/app/src/main/res/drawable/ic_icons8_cancel.xml" value="0.2595" />
         <entry key="..\:/Android/PerluDilindungi/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2985" />
         <entry key="..\:/Android/PerluDilindungi/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2985" />
+        <entry key="..\:/Android/PerluDilindungi/app/src/main/res/drawable/ic_success_scan.xml" value="0.2675" />
         <entry key="..\:/Android/PerluDilindungi/app/src/main/res/drawable/splash_background.xml" value="0.1" />
-        <entry key="..\:/Android/PerluDilindungi/app/src/main/res/layout/activity_main.xml" value="0.25064599483204136" />
+        <entry key="..\:/Android/PerluDilindungi/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Android/PerluDilindungi/app/src/main/res/layout/activity_qrcode.xml" value="0.25" />
+        <entry key="..\:/Android/PerluDilindungi/app/src/main/res/layout/activity_scan.xml" value="1.4171511627906976" />
         <entry key="..\:/Android/PerluDilindungi/app/src/main/res/layout/activity_splash_screen.xml" value="0.21739130434782608" />
         <entry key="..\:/Android/PerluDilindungi/app/src/main/res/layout/fragment_dashboard.xml" value="0.3625" />
         <entry key="..\:/Android/PerluDilindungi/app/src/main/res/layout/fragment_detail_news.xml" value="0.25" />

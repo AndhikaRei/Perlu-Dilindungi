@@ -10,7 +10,7 @@ data class CheckInResponse (
     val code: Int = 0,
 
     @field:SerializedName("message")
-    val message: Int = 0,
+    val message: String = "",
 
     @field:SerializedName("data")
     val data: CheckInResponseData? = CheckInResponseData()
