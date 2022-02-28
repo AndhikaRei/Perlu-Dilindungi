@@ -7,4 +7,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="temperature_string">%d °C</string>
+    <string name="pilih_provinsi">Pilih Provinsi</string>
+    <string name="pilih_kota">Pilih Kota</string>
+    <string name="search">Search</string>
+    <string name="kodeFaskes">KODE: %1$s </string>>
 </resources>

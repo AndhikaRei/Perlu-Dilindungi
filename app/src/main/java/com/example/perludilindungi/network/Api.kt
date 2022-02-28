@@ -16,7 +16,9 @@ interface Api {
     fun getListProvince(): Call<ProvinceResponse>
 
     @GET("api/get-city")
-    fun getListCity(): Call<CityResponse>
+    fun getListCity(
+        @Query("start_id") start_id: String,
+    ): Call<CityResponse>
 
     @GET("api/get-faskes-vaksinasi")
     fun getFaskesVaksinasi(

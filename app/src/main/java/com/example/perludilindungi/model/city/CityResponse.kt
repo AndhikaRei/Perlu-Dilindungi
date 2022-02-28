@@ -11,5 +11,5 @@ data class CityResponse (
     val message: String = "",
 
     @field:SerializedName("results")
-    val results: List<Province> = ArrayList()
+    val results: List<City> = ArrayList()
 )

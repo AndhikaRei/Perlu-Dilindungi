@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -54,7 +55,11 @@ class ListNewsFragment : Fragment() {
         RetrofitClient.instance.getListNews().enqueue(object : Callback<NewsResponse>{
             override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
                 Log.e("Error", "Fetching news failed")
-                t.message?.let { Log.e("Error", it) }
+                t.message?.let {
+                    Log.e("Error", it)
+                    Toast.makeText(context, it,
+                        Toast.LENGTH_LONG).show()
+                }
             }
 
             override fun onResponse(call: Call<NewsResponse>, response: Response<NewsResponse>) {

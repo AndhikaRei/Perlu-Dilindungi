@@ -13,6 +13,6 @@ data class FaskesResponse (
     @field:SerializedName("count_total")
     val count_total: Int? = 0,
 
-    @field:SerializedName("results")
-    val result: List<Faskes> = ArrayList<Faskes>()
+    @field:SerializedName("data")
+    val data: List<Faskes> = ArrayList<Faskes>()
 )

@@ -123,7 +123,8 @@ class QRCodeActivity : AppCompatActivity(), SensorEventListener {
         val cts = CancellationTokenSource()
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         fusedLocationProviderClient
-            .getCurrentLocation(LocationRequest.PRIORITY_HIGH_ACCURACY, cts.token)
+            .lastLocation
+//            .getCurrentLocation(LocationRequest.PRIORITY_HIGH_ACCURACY, cts.token)
             .addOnSuccessListener {
                 if (it == null){
                     Toast.makeText(this, "Can't get location", Toast.LENGTH_SHORT).show()

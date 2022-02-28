@@ -31,7 +31,8 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.PerluDilindungi" >
+            android:theme="@style/Theme.PerluDilindungi"
+            android:configChanges="screenSize">
         </activity>
     </application>
 
