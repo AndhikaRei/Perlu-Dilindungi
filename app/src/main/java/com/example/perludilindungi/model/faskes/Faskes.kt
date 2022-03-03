@@ -44,5 +44,6 @@ data class Faskes (
     val detail: List<FaskesDetail> = ArrayList(),
 
     @field:SerializedName("source_data")
-    val source_data: String = ""
+    val source_data: String = "",
+
 )

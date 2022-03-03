@@ -35,6 +35,7 @@ import com.google.android.gms.tasks.CancellationTokenSource
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.math.pow
 
 class ListVaccineFragment : Fragment() {
 
@@ -229,11 +230,17 @@ class ListVaccineFragment : Fragment() {
                         call: Call<FaskesResponse>,
                         response: Response<FaskesResponse>
                     ) {
+                        fun distance(x1 : Double, y1 : Double, x2 : Double, y2 : Double) : Double = ((x1 - x2).pow(2.0) + (y1-y2).pow(2.0)).pow(0.5)
                         Log.d("INFO", response.code().toString())
                         response.body()?.let {
                             val result = response.body()!!.data
-                            print(response.body())
-                            list.addAll(result)
+                            // Filter by location
+                            var resultMap : Map<Double, Faskes> = mutableMapOf<Double, Faskes>();
+                            result.forEach{ resultMap += mapOf(distance(it.longitude.toDouble(), it.latitude.toDouble(), longitude, latitude) to it)}
+                            resultMap = resultMap.toSortedMap()
+                            Log.d("Result Map", resultMap.toString())
+                            list.addAll(resultMap.values.take(5))
+
                         }
                         Log.d("SIZE", list.size.toString())
                         recyclerView.adapter = ListVaccineAdapter(list)
