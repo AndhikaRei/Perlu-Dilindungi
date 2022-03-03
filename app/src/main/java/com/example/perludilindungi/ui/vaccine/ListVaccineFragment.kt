@@ -3,9 +3,10 @@ package com.example.perludilindungi.ui.vaccine
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
+import android.location.Location
+import android.location.Location.distanceBetween
 import android.location.LocationManager
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -29,13 +30,13 @@ import com.example.perludilindungi.model.province.ProvinceResponse
 import com.example.perludilindungi.network.RetrofitClient
 import com.example.perludilindungi.ui.news.ListVaccineAdapter
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.CancellationTokenSource
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import kotlin.math.pow
+
 
 class ListVaccineFragment : Fragment() {
 
@@ -136,7 +137,7 @@ class ListVaccineFragment : Fragment() {
 
 
         // Get the list of province.
-        var listProvince = ArrayList<Province>()
+        val listProvince = ArrayList<Province>()
         RetrofitClient.instance.getListProvince().enqueue(object : Callback<ProvinceResponse> {
             override fun onFailure(call: Call<ProvinceResponse>, t: Throwable) {
                 Log.e("Error", "Fetching news failed")
@@ -155,7 +156,7 @@ class ListVaccineFragment : Fragment() {
                     val result = response.body()!!.results
                     listProvince.addAll(result)
                 }
-                var listProvinceString = listOf<String>()
+                val listProvinceString: List<String>
                 listProvinceString = listProvince.map {
                     it.key!!
                 }
@@ -168,12 +169,12 @@ class ListVaccineFragment : Fragment() {
         })
 
         // If dropdown province has been clicked then refresh the dropdown city value.
-        dropdownProvince.setOnItemClickListener{ parent, view, position, id ->
+        dropdownProvince.setOnItemClickListener{ parent, _, position, _ ->
             dropdownCity.text.clear()
             val selectedProvince = parent.getItemAtPosition(position) as String
 
             // Get the list of city.
-            var listCity = ArrayList<City>()
+            val listCity = ArrayList<City>()
             RetrofitClient.instance.getListCity(start_id = selectedProvince).enqueue(object : Callback<CityResponse> {
                 override fun onFailure(call: Call<CityResponse>, t: Throwable) {
                     Log.e("Error", "Fetching news failed")
@@ -190,8 +191,7 @@ class ListVaccineFragment : Fragment() {
                         val result = response.body()!!.results
                         listCity.addAll(result)
                     }
-                    var listCityString = listOf<String>()
-                    listCityString = listCity.map {
+                    val listCityString: List<String> = listCity.map {
                         it.key!!
                     }
 
@@ -205,15 +205,15 @@ class ListVaccineFragment : Fragment() {
 
         // Set Onclick when searching
         binding.buttonSearch.setOnClickListener{
-            var selectedProvince = dropdownProvince.editableText.toString()
-            var selectedCity = dropdownCity.editableText.toString()
+            val selectedProvince = dropdownProvince.editableText.toString()
+            val selectedCity = dropdownCity.editableText.toString()
 
             if (selectedProvince != "" && selectedCity != ""){
 
                 Log.d("LAT", latitude.toString())
                 Log.d("LON", longitude.toString())
                 // Get the data from the api.
-                var list = ArrayList<Faskes>()
+                val list = ArrayList<Faskes>()
                 RetrofitClient.instance.getFaskesVaksinasi(
                     city = selectedCity,
                     province = selectedProvince
@@ -230,17 +230,32 @@ class ListVaccineFragment : Fragment() {
                         call: Call<FaskesResponse>,
                         response: Response<FaskesResponse>
                     ) {
-                        fun distance(x1 : Double, y1 : Double, x2 : Double, y2 : Double) : Double = ((x1 - x2).pow(2.0) + (y1-y2).pow(2.0)).pow(0.5)
                         Log.d("INFO", response.code().toString())
                         response.body()?.let {
                             val result = response.body()!!.data
+
                             // Filter by location
-                            var resultMap : Map<Double, Faskes> = mutableMapOf<Double, Faskes>();
-                            result.forEach{ resultMap += mapOf(distance(it.longitude.toDouble(), it.latitude.toDouble(), longitude, latitude) to it)}
+                            var resultMap : Map<Float, Faskes> = mutableMapOf()
+
+                            // Make current location object.
+                            val locationA = Location("Current Location")
+                            locationA.latitude = latitude
+                            locationA.longitude = longitude
+
+                            result.forEach{
+
+                                // Make target location.
+                                val locationB = Location(it.nama)
+                                locationB.latitude = it.latitude.toDouble()
+                                locationB.longitude = it.longitude.toDouble()
+
+                                val distance = locationA.distanceTo(locationB)
+                                resultMap += mapOf(distance to it)
+                            }
+
                             resultMap = resultMap.toSortedMap()
                             Log.d("Result Map", resultMap.toString())
                             list.addAll(resultMap.values.take(5))
-
                         }
                         Log.d("SIZE", list.size.toString())
                         recyclerView.adapter = ListVaccineAdapter(list)
