@@ -50,6 +50,8 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.1'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.room:room-common:2.4.2'
+    implementation 'androidx.databinding:databinding-runtime:4.2.2'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -62,4 +64,11 @@ dependencies {
     // Location services
     implementation "com.google.android.gms:play-services-location:19.0.1"
 
+    // Database purposes
+    implementation("androidx.room:room-runtime:2.4.2")
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:2.4.2")
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:2.4.2")
 }

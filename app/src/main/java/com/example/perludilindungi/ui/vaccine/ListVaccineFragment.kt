@@ -236,7 +236,7 @@ class ListVaccineFragment : Fragment() {
                             list.addAll(result)
                         }
                         Log.d("SIZE", list.size.toString())
-                        recyclerView.adapter = ListVaccineAdapter(list)
+
                     }
                 })
             } else {

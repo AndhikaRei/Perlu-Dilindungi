@@ -19,13 +19,21 @@
         android:id="@+id/navigation_vaccine"
         android:name="com.example.perludilindungi.ui.vaccine.ListVaccineFragment"
         android:label="@string/title_vaccine"
-        tools:layout="@layout/fragment_list_vaccine" />
+        tools:layout="@layout/fragment_list_vaccine" >
+        <action
+            android:id="@+id/action_navigation_vaccine_to_navigation_detail_faskes"
+            app:destination="@id/navigation_detail_faskes" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_bookmarks"
         android:name="com.example.perludilindungi.ui.bookmark.BookmarkFragment"
         android:label="@string/title_bookmark"
-        tools:layout="@layout/fragment_bookmark" />
+        tools:layout="@layout/fragment_bookmark" >
+        <action
+            android:id="@+id/action_navigation_bookmarks_to_navigation_detail_faskes"
+            app:destination="@id/navigation_detail_faskes" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_detail_news"
         android:name="com.example.perludilindungi.ui.news.DetailNewsFragment"
@@ -35,5 +43,38 @@
             android:name="url"
             android:defaultValue="https://www.google.com"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_detail_faskes"
+        android:name="com.example.perludilindungi.DetailFaskesFragment"
+        android:label="fragment_detail_faskes"
+        tools:layout="@layout/fragment_detail_faskes" >
+        <argument
+            android:name="nama"
+            app:argType="string" />
+        <argument
+            android:name="alamat"
+            app:argType="string" />
+        <argument
+            android:name="kode"
+            app:argType="string" />
+        <argument
+            android:name="telp"
+            app:argType="string"
+            android:defaultValue="Telp tidak tersedia" />
+        <argument
+            android:name="type"
+            app:argType="string" />
+        <argument
+            android:name="latitude"
+            app:argType="string" />
+        <argument
+            android:name="longitude"
+            app:argType="string" />
+        <argument
+            android:name="status"
+            app:argType="string" />
+        <argument android:name="id"
+            app:argType="integer" />
     </fragment>
 </navigation>

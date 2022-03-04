@@ -1,13 +1,14 @@
 package com.example.perludilindungi.ui.bookmark
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.*
+import com.example.perludilindungi.database.FaskesDao
+import com.example.perludilindungi.database.FaskesEntity
+import kotlinx.coroutines.launch
 
-class BookmarkViewModel : ViewModel() {
+class BookmarkViewModel(val database: FaskesDao, application: Application) : AndroidViewModel(application) {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is bookmark Fragment"
-    }
-    val text: LiveData<String> = _text
+    private val listFaskes = database.getAllFaskes()
+
+
 }

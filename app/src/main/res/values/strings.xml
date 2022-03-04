@@ -4,11 +4,13 @@
     <string name="title_detail_news">Detail News</string>
     <string name="title_vaccine">Lokasi Vaksin</string>
     <string name="title_bookmark">Bookmark</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="temperature_string">%d °C</string>
     <string name="pilih_provinsi">Pilih Provinsi</string>
     <string name="pilih_kota">Pilih Kota</string>
     <string name="search">Search</string>
-    <string name="kodeFaskes">KODE: %1$s </string>>
+    <string name="kodeFaskes">KODE: %1$s </string>
+    <string name="google_maps">Google Maps</string>
+    <string name="detail_faskes_text">Fasilitas ini\nSIAP VAKSINASI</string>
+    <string name="bookmarked_faskes">Bookmarked Faskes</string>
 </resources>

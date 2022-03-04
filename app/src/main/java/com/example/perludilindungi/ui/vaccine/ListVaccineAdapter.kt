@@ -1,13 +1,16 @@
 package com.example.perludilindungi.ui.news
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.perludilindungi.R
 import com.example.perludilindungi.model.faskes.Faskes
-
+import com.example.perludilindungi.ui.vaccine.ListVaccineFragment
+import com.example.perludilindungi.ui.vaccine.ListVaccineFragmentDirections
 
 
 class ListVaccineAdapter (private val list: ArrayList<Faskes> = ArrayList())
@@ -71,7 +74,21 @@ class ListVaccineAdapter (private val list: ArrayList<Faskes> = ArrayList())
         holder.type.text = jenisFaskes
 
         holder.itemView.setOnClickListener{
-            // TODO: Kinon implement this
+            // using the required arguments
+            Log.d("INFO", list[position].toString())
+            val action = ListVaccineFragmentDirections.actionNavigationVaccineToNavigationDetailFaskes(
+                id = list[position].id,
+                nama = list[position].nama,
+                kode = list[position].kode,
+                type = list[position].jenis_faskes,
+                alamat = list[position].alamat,
+                telp = list[position].telp,
+                status = list[position].status,
+                latitude = list[position].latitude,
+                longitude = list[position].longitude,
+            )
+            // Navigate using that action
+            holder.view.findNavController().navigate(action)
         }
     }
 
