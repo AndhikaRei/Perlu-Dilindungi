@@ -38,7 +38,7 @@ Aplikasi yang dibuat adalah aplikasi kesehatan (peduli lindungi versi lite) yang
 2. Google Maps Service, untuk mendapatkan lokasi titik dari pengguna
 3. Picasso, digunakan untuk menampilkan gambar dari URL yang diberikan
 4. budiyev/code-scanner digunakan untuk melakukan scanning qr code
-
+5. Androidx.room, digunakan untuk fungsi-fungsi sqlite dan akses dari singleton instance
 
 ## Screenshot
 | Name | Preview |
@@ -49,10 +49,10 @@ Aplikasi yang dibuat adalah aplikasi kesehatan (peduli lindungi versi lite) yang
 | Daftar Faskes Searched | <img src="img/daftar_faskes_searched.png"> |
 | Daftar Faskes Landscape | <img src="img/daftar_faskes_landscape.png"> |
 | Daftar Faskes Landscape Searched | <img src="img/daftar_faskes_landscape_searched.png"> |
-| Detail Faskes Siap Vaksinasi | <img src="img/detail_faskes_siap_vaksinasi.png"> |
+| Detail Faskes Siap Vaksinasi | <img src="img/detail_faskes_siap_vaksinasi.jpg"> |
 | Detail Faskes Tidak Siap Vaksinasi | <img src="img/detail_faskes_tidak_siap_vaksinasi.png"> |
-| Google Maps Faskes | <img src="img/google_maps_faskes.png"> |
-| Bookmark Faskes | <img src="img/bookmark_faskes.png"> |
+| Google Maps Faskes | <img src="img/google_maps_faskes.jpg"> |
+| Bookmark Faskes | <img src="img/bookmark_faskes.jpg"> |
 | QRCode | <img src="img/qrcode.png"> |
 | QRCode Red | <img src="img/qrcode_red.png"> |
 | QRCode Green | <img src="img/qrcode_green.png"> |
@@ -62,7 +62,7 @@ Aplikasi yang dibuat adalah aplikasi kesehatan (peduli lindungi versi lite) yang
 
 ## Pembagian Tugas
 1. 13519014 Mahameru DS
-
+    - Mengurukan faskes hasil berdasarkan jarak
 
 2. 13519043 Reihan Andhika Putra
     - Membuat bottom navigation
@@ -73,4 +73,9 @@ Aplikasi yang dibuat adalah aplikasi kesehatan (peduli lindungi versi lite) yang
     - Membuat halaman list faskes landscape (search city, search province, search faskes, get lokasi, sort faskes)
     - Membuat halaman qrcode (get suhu, get lokasi, scan, POST check-in)
 
-3. 13519044 Kinantan Ariya Bagaspati
+3. 13519044 Kinantan Arya Bagaspati
+    - Init Room
+    - Membuat DAO dan entity model Faskes
+    - Membuat halaman detail faskes (bookmark, unbookmark, gmaps intent)
+    - Membuat halaman bookmarked faskes
+    - Membuat navigasi ke detail faskes
