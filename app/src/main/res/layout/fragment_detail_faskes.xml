@@ -14,12 +14,10 @@
             android:id="@+id/constraintLayout"
             android:layout_width="400dp"
             android:layout_height="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.454"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.13999999">
+            app:layout_constraintTop_toBottomOf="@+id/faskesName2">
 
             <TextView
                 android:id="@+id/faskesCode"
@@ -32,9 +30,11 @@
 
             <TextView
                 android:id="@+id/faskesType"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="TextView"
+                android:textAlignment="center"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +43,8 @@
         <TextView
             android:id="@+id/faskesName2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
             android:ellipsize="end"
             android:maxLines="2"
             android:singleLine="false"
@@ -51,16 +52,14 @@
             android:textColor="#000000"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.050000012"
             tools:text="Faskes Nomor 1" />
 
         <TextView
             android:id="@+id/faskesInfo"
-            android:layout_width="wrap_content"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
@@ -70,65 +69,65 @@
             android:textColor="#000000"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/gmapButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/faskesAddress"
             android:layout_width="400dp"
             android:layout_height="60dp"
+            android:layout_marginTop="9dp"
             android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.207" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
         <TextView
             android:id="@+id/faskesTelp"
             android:layout_width="400dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
             android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.29000002" />
+            app:layout_constraintTop_toBottomOf="@+id/faskesAddress" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/gmapButton"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:background="@drawable/btn_purple"
             android:backgroundTint="@color/purple_500"
             android:text="@string/google_maps"
-            app:layout_constraintBottom_toTopOf="@+id/bookmarkButton"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/faskesInfo" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bookmarkButton"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="60dp"
             android:background="@drawable/btn_purple"
             android:backgroundTint="@color/pastel_red"
             android:text="Button"
+            android:textColor="@color/white"
             android:textColorLink="#FF03DAC5"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gmapButton" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="200dp"
             android:layout_height="200dp"
+            android:layout_marginTop="20dp"
             android:src="@drawable/ic_success_scan"
-            app:layout_constraintBottom_toTopOf="@+id/faskesInfo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/faskesTelp" />

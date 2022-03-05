@@ -51,30 +51,38 @@
         tools:layout="@layout/fragment_detail_faskes" >
         <argument
             android:name="nama"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
         <argument
             android:name="alamat"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
         <argument
             android:name="kode"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
         <argument
             android:name="telp"
             app:argType="string"
-            android:defaultValue="Telp tidak tersedia" />
+            app:nullable="true" />
         <argument
             android:name="type"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
         <argument
             android:name="latitude"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
         <argument
             android:name="longitude"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
         <argument
             android:name="status"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
         <argument android:name="id"
-            app:argType="integer" />
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 </navigation>

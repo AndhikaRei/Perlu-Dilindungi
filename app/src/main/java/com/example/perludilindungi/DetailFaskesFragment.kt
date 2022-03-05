@@ -96,17 +96,33 @@ class DetailFaskesFragment : Fragment() {
             "KLINIK" -> {
                 typeTextView.setBackgroundResource(R.color.purple_500)
             }
+            "FKTP" -> {
+                typeTextView.setBackgroundResource(R.color.purple_500)
+            }
         }
         typeTextView.text = jenis_faskes
         val addressTextView: TextView = view.findViewById(R.id.faskesAddress)
+        if(alamat.isNullOrEmpty() || alamat.equals("null")){
+            alamat = "Alamat tidak tersedia"
+        }
         addressTextView.text = alamat
         val telpTextView: TextView = view.findViewById(R.id.faskesTelp)
+        if(telp.isNullOrEmpty() || telp.equals("null")){
+            telp = "Telp tidak tersedia"
+        }
         telpTextView.text = "Telp: " + telp
+
+        val imageView: ImageView = view.findViewById(R.id.imageView)
+        val faskesInfo: TextView = view.findViewById(R.id.faskesInfo)
+        if(!status.equals("Siap Vaksinasi")){
+            faskesInfo.text = "Fasilitas ini TIDAK SIAP VAKSINASI"
+            imageView.setImageResource(R.drawable.ic_failed_scan)
+        }
 
         val gmapsButton: Button = view.findViewById(R.id.gmapButton)
         gmapsButton.setOnClickListener {
             // Creates an Intent that will load a map of San Francisco
-            val gmmIntentUri = Uri.parse("geo:" + latitude + "," + longitude)
+            val gmmIntentUri = Uri.parse("geo:" + latitude + "," + longitude + "?q=" + Uri.encode(jenis_faskes + " " + nama))
             val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
             mapIntent.setPackage("com.google.android.apps.maps")
             startActivity(mapIntent)
