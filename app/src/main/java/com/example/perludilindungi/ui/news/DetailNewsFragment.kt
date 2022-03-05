@@ -55,7 +55,7 @@ class DetailNewsFragment : Fragment() {
         // Load the [WebView].
         webView.loadUrl(url)
 
-        // Change basic webview setting.
+        // Change basic webview settinsg.
         val webSettings = webView.settings
         webSettings.javaScriptEnabled = true
         webSettings.safeBrowsingEnabled = true

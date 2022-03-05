@@ -158,6 +158,8 @@ class QRCodeActivity : AppCompatActivity(), SensorEventListener {
                                 // Write user status.
                                 val userStatus = response.body()!!.data!!.userStatus
 
+                                binding.userStatus.visibility = View.VISIBLE
+
                                 when (userStatus) {
                                     "green" -> {
                                         binding.userStatus.setBackgroundResource(R.color.green)
@@ -289,7 +291,7 @@ class QRCodeActivity : AppCompatActivity(), SensorEventListener {
         if (decodeResult != ""){
             decodeResult = ""
             binding.iconStatus.visibility = View.INVISIBLE
-            binding.userStatus.setBackgroundResource(R.color.transparent)
+            binding.userStatus.visibility = View.INVISIBLE
             binding.statusScan.text = ""
             binding.userReason.text = ""
         }
