@@ -27,6 +27,7 @@ import com.example.perludilindungi.model.faskes.FaskesResponse
 import com.example.perludilindungi.model.province.Province
 import com.example.perludilindungi.model.province.ProvinceResponse
 import com.example.perludilindungi.network.RetrofitClient
+import com.example.perludilindungi.ui.news.ListNewsAdapter
 import com.example.perludilindungi.ui.news.ListVaccineAdapter
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest
@@ -236,7 +237,7 @@ class ListVaccineFragment : Fragment() {
                             list.addAll(result)
                         }
                         Log.d("SIZE", list.size.toString())
-
+                        recyclerView.adapter = ListVaccineAdapter(list)
                     }
                 })
             } else {

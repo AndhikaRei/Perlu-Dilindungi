@@ -12,7 +12,7 @@ interface FaskesDao {
     @Query("DELETE FROM bookmarked_faskes WHERE id = :id")
     fun delete(id: Int)
     @Query("SELECT * FROM bookmarked_faskes ORDER BY id ASC")
-    fun getAllFaskes(): List<FaskesEntity>
+    fun getAllFaskes(): LiveData<List<FaskesEntity>>
     @Query("SELECT count(id) FROM bookmarked_faskes WHERE id = :id")
     suspend fun isBookmarked(id: Int): Int
 }

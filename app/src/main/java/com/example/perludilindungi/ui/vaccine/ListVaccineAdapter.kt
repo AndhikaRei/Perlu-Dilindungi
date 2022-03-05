@@ -9,12 +9,26 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.perludilindungi.R
 import com.example.perludilindungi.model.faskes.Faskes
+import com.example.perludilindungi.ui.bookmark.BookmarkFragmentDirections
 import com.example.perludilindungi.ui.vaccine.ListVaccineFragment
 import com.example.perludilindungi.ui.vaccine.ListVaccineFragmentDirections
 
 
-class ListVaccineAdapter (private val list: ArrayList<Faskes> = ArrayList())
+class ListVaccineAdapter (private val fromList: ArrayList<Faskes> = ArrayList(),
+                          private val fromBookmark : Boolean = false)
     :RecyclerView.Adapter<ListVaccineAdapter.ListVaccineViewHolder>() {
+    private var list: ArrayList<Faskes>
+    private var bookmark: Boolean
+
+    init{
+        list = fromList
+        bookmark = fromBookmark
+    }
+
+    fun setList(toList: ArrayList<Faskes>){
+        list = toList
+        notifyDataSetChanged()
+    }
 
     /**
      * Provides a reference for the views needed to display items in your list.
@@ -26,6 +40,13 @@ class ListVaccineAdapter (private val list: ArrayList<Faskes> = ArrayList())
         val telp: TextView = view.findViewById(R.id.faskesTelp)
         val code: TextView = view.findViewById(R.id.faskesCode)
     }
+
+    /*
+    fun setList(list: ArrayList<Faskes>){
+        this.list = list
+        notifyDataSetChanged()
+    }
+    */
 
     /**
      * Creates new views with R.layout.list_vaccines_holder as its template
@@ -76,7 +97,7 @@ class ListVaccineAdapter (private val list: ArrayList<Faskes> = ArrayList())
         holder.itemView.setOnClickListener{
             // using the required arguments
             Log.d("INFO", list[position].toString())
-            val action = ListVaccineFragmentDirections.actionNavigationVaccineToNavigationDetailFaskes(
+            var action = ListVaccineFragmentDirections.actionNavigationVaccineToNavigationDetailFaskes(
                 id = list[position].id,
                 nama = list[position].nama,
                 kode = list[position].kode,
@@ -87,6 +108,19 @@ class ListVaccineAdapter (private val list: ArrayList<Faskes> = ArrayList())
                 latitude = list[position].latitude,
                 longitude = list[position].longitude,
             )
+            if(bookmark){
+                action = BookmarkFragmentDirections.actionNavigationBookmarksToNavigationDetailFaskes(
+                    id = list[position].id,
+                    nama = list[position].nama,
+                    kode = list[position].kode,
+                    type = list[position].jenis_faskes,
+                    alamat = list[position].alamat,
+                    telp = list[position].telp,
+                    status = list[position].status,
+                    latitude = list[position].latitude,
+                    longitude = list[position].longitude,
+                )
+            }
             // Navigate using that action
             holder.view.findNavController().navigate(action)
         }

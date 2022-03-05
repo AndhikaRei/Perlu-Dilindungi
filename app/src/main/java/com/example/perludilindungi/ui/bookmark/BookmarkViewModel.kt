@@ -3,12 +3,23 @@ package com.example.perludilindungi.ui.bookmark
 import android.app.Application
 import androidx.lifecycle.*
 import com.example.perludilindungi.database.FaskesDao
+import com.example.perludilindungi.database.FaskesDatabase
 import com.example.perludilindungi.database.FaskesEntity
 import kotlinx.coroutines.launch
 
-class BookmarkViewModel(val database: FaskesDao, application: Application) : AndroidViewModel(application) {
+class BookmarkViewModel(application: Application) : AndroidViewModel(application) {
+    private var faskesDao : FaskesDao?
+    private var faskesDb : FaskesDatabase?
+    private var list: LiveData<List<FaskesEntity>>
 
-    private val listFaskes = database.getAllFaskes()
+    init {
+        faskesDb = FaskesDatabase.getInstance(application)
+        faskesDao = faskesDb?.faskesDao
+        list = faskesDao?.getAllFaskes()!!
+    }
+
+    fun getListFaskes(): LiveData<List<FaskesEntity>> = list
+
 
 
 }
